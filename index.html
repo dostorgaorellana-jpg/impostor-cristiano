@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impostor Bíblico</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <main class="app">
+
+    <!-- PANTALLA 1: INICIO -->
+    <section id="pantalla-inicio" class="pantalla activa">
+
+  <h1>🕊️ Impostor Bíblico</h1>
+  <p>Amén Amén Amén</p>
+  
+  <p id="versiculo" class="versiculo"></p>
+
+  <div class="inicio-layout">
+
+    <div class="inicio-texto izquierda">
+      <p>Bienvenidos</p>
+    </div>
+
+    <div class="inicio-form">
+
+      <label for="jugadores">Cantidad de jugadores</label>
+      <input
+        type="number"
+        id="jugadores"
+        min="3"
+        max="15"
+        step="1"
+        placeholder="Ej: 6"
+        inputmode="numeric"
+      />
+
+      <label for="categoria">Categoría</label>
+      <select id="categoria">
+        <option value="personajes">Personajes bíblicos</option>
+        <option value="libros">Libros de la Biblia</option>
+        <option value="lugares">Lugares bíblicos</option>
+      </select>
+
+      <label for="tiempoRonda">Tiempo de ronda</label>
+<select id="tiempoRonda">
+  <option value="30">30 segundos</option>
+  <option value="60" selected>60 segundos</option>
+  <option value="90">90 segundos</option>
+  <option value="120">2 minutos</option>
+  <option value="300">5 minutos</option>
+  <option value="600">10 minutos</option>
+</select>
+
+      <button id="btn-iniciar" type="button">Iniciar juego</button>
+    </div>
+
+    <div class="inicio-texto derecha">
+      <p>Dios con nosotros</p>
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- PANTALLA 2: PASAR TELÉFONO -->
+    <section id="pantalla-pasar" class="pantalla">
+      <h2>Pasa el dispositivo</h2>
+      <p id="texto-jugador">Jugador 1</p>
+
+      <button id="btn-ver-rol" type="button">Ver rol</button>
+    </section>
+
+    <!-- PANTALLA 3: ROL SECRETO -->
+    <section id="pantalla-rol" class="pantalla">
+      <h2>Tu rol</h2>
+
+      <!-- Jugador normal -->
+      <div id="rol-normal" class="rol oculto">
+        <p>La palabra es:</p>
+        <h3 id="palabra" class="palabra-secreta">FE</h3>
+      </div>
+
+      <!-- Impostor -->
+      <div id="rol-impostor" class="rol oculto">
+        <p>❌Impostor, ni judas se atrevio a tanto.</p>
+        <p>No conoces la palabra</p>
+      </div>
+
+      <button id="btn-siguiente" type="button">Siguiente jugador</button>
+    </section>
+
+    <!-- PANTALLA 4: COMIENZA EL JUEGO -->
+    <section id="pantalla-juego" class="pantalla">
+      <h2>🎮 Comienza el juego</h2>
+      <p>
+        Todos los roles han sido asignados.<br />
+        Empiecen a jugar y descubran al impostor.
+      </p>
+
+      <div id="temporizador">
+  <p>⏱️ Tiempo restante</p>
+  <h1 id="timer">60</h1>
+</div>
+
+      <button id="btn-reiniciar" type="button">Reiniciar juego</button>
+    </section>
+
+    <!-- PANTALLA 5: FIN DE RONDA -->
+<section id="pantalla-fin" class="pantalla">
+  <h2>⏱️ Fin de la ronda</h2>
+  <p>¿Encontraron al impostor?</p>
+
+  <div class="opciones-fin">
+    <button id="btn-si">✅ Sí</button>
+    <button id="btn-no">❌ No</button>
+  </div>
+</section>
+
+  </main>
+
+  <!-- JS -->
+  <script src="js/script.js" defer></script>
+
+  <!-- sonidos-->
+   <audio id="audio-click" src="sounds/click.mp3" preload="auto"></audio>
+   <audio id="audio-revelar" src="sounds/revelar.mp3" preload="auto"></audio>
+   <audio id="audio-fondo" src="sounds/fondo.mp3" loop preload="auto"></audio>
+
+   <!-- ANUNCIO FIN DE RONDA -->
+<div id="anuncio-fin" class="anuncio oculto">
+  <div class="anuncio-contenido">
+    <h2 id="anuncio-titulo">Título</h2>
+    <p id="anuncio-texto">Mensaje</p>
+
+    <button id="btn-anuncio">Continuar</button>
+  </div>
+</div>
+
+</body>
+</html>
